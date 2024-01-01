@@ -49,7 +49,25 @@ import Admin from "./pages/Admin";
 import ImportAssociates from "./components/Associate/Admin/ImportAssociates";
 import GiveThanks from "./components/Thanks/GiveThanks";
 import Holidays from "./pages/Holidays";
+import { initializeApp } from "firebase/app";
+import { getAnalytics } from "firebase/analytics";
+
 function App() {
+  const firebaseConfig = {
+    apiKey: "AIzaSyBZQEoSmckxKON5VXglwie_lg1CMSoPszE",
+    authDomain: "junaidmalik-40c1e.firebaseapp.com",
+    databaseURL: "https://junaidmalik-40c1e-default-rtdb.firebaseio.com",
+    projectId: "junaidmalik-40c1e",
+    storageBucket: "junaidmalik-40c1e.appspot.com",
+    messagingSenderId: "257154290903",
+    appId: "1:257154290903:web:a469f21da2049323eecc92",
+    measurementId: "G-6SKL5NTFE9"
+  };
+
+  // Initialize Firebase
+  const app = initializeApp(firebaseConfig);
+  const analytics = getAnalytics(app);
+
   const associatesCollectionRef = collection(db, "Associates");
   const [updateAssociates, setUpdateAssociates] = useState(1);
   const [associates, setAssociates] = useState([]);
